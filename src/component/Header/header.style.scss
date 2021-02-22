@@ -1,0 +1,25 @@
+.header{
+    background-color: #ffb5a7;
+    height: 20vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    align-items: center;
+    color: white;
+    .header-image{
+       height: 100%;
+       position: sticky;
+       position: relative;
+       .image{
+           position: absolute;
+           height: 120%;
+           left: -300px;
+           top:-10px;
+       }
+    }
+    .header-text{
+        text-align: right;
+        padding-right: 7vw;
+    }
+}
