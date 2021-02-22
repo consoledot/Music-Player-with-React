@@ -1,7 +1,7 @@
 .navigation{
    height: 100vh;
    background-color: #6c63ff;
-   width: 10vw;
+   width: 15vw;
    display: flex;
    flex-direction: column;
    color: white;
@@ -18,13 +18,18 @@
    }
    nav{
        margin-top: 3rem;
+       overflow: hidden;
        li{
            list-style: none;
            display: flex;
            height: 100%;
            align-items: center;
            width: 100%;
-          padding:1rem;
+           padding:1rem;
+           cursor: pointer;
+           &:hover{
+               background-color: #c8c5f7;
+           }
            i{
                padding-right: 1rem;
            }

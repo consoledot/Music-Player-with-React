@@ -1,0 +1,50 @@
+.player-panel{
+    display: flex;
+    height: 70px;
+    align-items: center;
+    position: fixed;
+    width: 85%;
+    bottom: 0;
+    padding: .5rem;
+    border-top: 1px solid whitesmoke;
+    background-color: white;
+    &>*{
+        padding: 0 0.5rem;
+    }
+    .image{
+        height: 100%;
+        img{
+            height: 100%;
+        }
+    }
+    i{
+        color: #d3d3e0;
+    }
+    .title{
+        color: #1b1b1d;
+        font-size: 11px;
+    }
+    .controls{
+        &>*{
+            padding: 0 0.3rem;
+        }
+        .fa-play-circle{
+            transform: scale(1.5);
+            color: #6c63ff;
+        }
+    }
+    .bar{
+        width: 65%;
+        background-color: #6c63ff;
+        height: 2px;
+    }
+    .options{
+        justify-self: end;
+        &>*{
+            padding: 0 0.3rem;
+        }
+    }
+    .options, .controls{
+        display: 70;
+    }
+}
