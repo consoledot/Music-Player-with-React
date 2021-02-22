@@ -7,8 +7,8 @@ const Header = ()=>(
             <HeaderImage className="image"/>
         </div>
         <div className="header-text">
-            <h2>All your favourite tunes</h2>
-            <p>All 🌞 and 🌙</p>
+            <h1> Your favourite tunes</h1>
+            <h3>All 🌞 and 🌙</h3>
         </div>
     </div>
 )
