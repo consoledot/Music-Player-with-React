@@ -5,19 +5,19 @@
    display: flex;
    flex-direction: column;
    color: white;
-   padding: 2rem 0;
+   padding: 1rem 0;
    .user-image{
        display: flex;
        flex-direction: column;
        align-items: center;
        .image{
-           height: 100%;
-           width: 70%;
+           height: 60%;
+           width: 60%;
            margin-bottom: 1rem;
        }
    }
    nav{
-       margin-top: 3rem;
+       margin-top: 1rem;
        overflow: hidden;
        li{
            list-style: none;

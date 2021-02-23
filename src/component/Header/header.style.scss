@@ -15,8 +15,10 @@
        .image{
            position: absolute;
            height: 120%;
-           left: -300px;
-           top:-10px;
+           left: -450px;
+           top:-7px;
+           transform: scaleX(-1);
+
        }
     }
     .header-text{
