@@ -28,7 +28,7 @@
         &>*{
             padding: 0 0.3rem;
         }
-        .fa-play-circle{
+        .fa-play-circle,.fa-pause-circle{
             transform: scale(1.5);
             color: #6c63ff;
         }
@@ -46,5 +46,8 @@
     }
     .options, .controls{
         display: 70;
+    }
+    .fa{
+        cursor: pointer;
     }
 }
