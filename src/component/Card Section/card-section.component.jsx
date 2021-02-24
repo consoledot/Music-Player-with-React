@@ -7,7 +7,7 @@ const CardSection= ({albums,title})=>{
         <h2>{title}</h2>
         <div className="section">
          {albums && (
-             albums.map(album => <Card key={album.id} image={album.cover_medium} title={album.title}/>)
+             albums.map(album => <Card key={album.id} image={album.cover_medium} title={album.title} id={album.id}/>)
          )}
         </div>
     </div>

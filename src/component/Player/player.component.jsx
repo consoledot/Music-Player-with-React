@@ -12,18 +12,20 @@ function playSong(){
     setStatus(!status)
 }
 function nextSong(){
-  updateIndex(index+1)
-  setStatus(false)
+    let newIndex = index + 1
+   newIndex >= playlist.length ? updateIndex(0) : updateIndex(newIndex)
+   setStatus(false)
 }
 function prevSong(){
-    updateIndex(index-1)
+    let newIndex = index - 1
+    newIndex < 0 ? updateIndex(playlist.length -1) : updateIndex(newIndex)
     setStatus(false)
 }
 
 return(
     <div className="player-panel">
         <div className="image">
-       {playlist && <img src={playlist[index].album.cover_medium} alt="music"/>}
+       {playlist && <img src={playlist[index].album ? playlist[index].album.cover_medium : playlist[index].cover_medium } alt="music"/>}
         </div>
         {playlist &&<div className="title">{playlist[index].title}</div>}
         <div className="controls">

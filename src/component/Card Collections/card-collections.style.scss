@@ -1,7 +1,6 @@
 .card-collection{
     height: 70vh;
-    overflow-x: scroll;
-    overflow-y: auto;
+    overflow-y: scroll;
     &::-webkit-scrollbar {
         display: none;
       }
