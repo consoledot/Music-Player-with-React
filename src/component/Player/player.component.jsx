@@ -1,24 +1,20 @@
 import './player.style.scss'
 import {connect} from 'react-redux'
-import {useRef, useState} from 'react'
+import {useRef} from 'react'
+import {setStatus} from '../../redux/action'
 
 
-const Player = ({playlist})=>{
-    const [isPlaying, setIsPlaying] = useState(false)
-    let [index, setIndex] = useState(0)
+const Player = ({playlist,index, status, setStatus})=>{
 
 const player = useRef()
 function playSong(){
-    isPlaying ?  player.current.pause() : player.current.play()
-    setIsPlaying(!isPlaying)
+    status ?  player.current.pause() : player.current.play()
+    setStatus(!status)
 }
 function nextSong(){
-    setIndex(index+1)
     player.current.play()
 }
 function prevSong(){
-   setIndex(index-1)
-   player.current.play()
 }
 
 return(
@@ -29,7 +25,7 @@ return(
         {playlist &&<div className="title">{playlist[index].title}</div>}
         <div className="controls">
             <i className="fa fa-step-backward" aria-hidden="true" onClick={()=> prevSong()}></i>
-            <i className={`fa ${isPlaying ? 'fa-pause-circle': 'fa-play-circle'}`} aria-hidden="true" onClick={()=> playSong()}></i>
+            <i className={`fa ${status ? 'fa-pause-circle': 'fa-play-circle'}`} aria-hidden="true" onClick={()=> playSong()}></i>
             <i className="fa fa-step-forward" aria-hidden="true" onClick={()=> nextSong()}></i>
         </div>
         <div className="bar">
@@ -46,6 +42,11 @@ return(
 )
 }
 const mapStateToProps = state=>({
-    playlist: state.newRelease
+    playlist: state.newRelease,
+    index: state.index,
+    status: state.status
 })
-export default connect(mapStateToProps)(Player)
+const mapDispatchToProps = dispatch=>({
+    setStatus: status => dispatch(setStatus(status))
+})
+export default connect(mapStateToProps,mapDispatchToProps)(Player)

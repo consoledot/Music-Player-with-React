@@ -1,5 +1,7 @@
 const INITIAL_STATE = {
-    newRelease: null
+    newRelease: null,
+    index: 0,
+    status: false
 }
 
 const reducer = (state= INITIAL_STATE, action)=>{
@@ -8,6 +10,16 @@ const reducer = (state= INITIAL_STATE, action)=>{
             return{
                 ...state,
                 newRelease: action.payload
+            }
+        case "SET_INDEX":
+            return{
+                ...state,
+                index: action.payload
+           }
+        case "SET_STATUS":
+            return{
+                ...state,
+                status: action.payload
             }
         default:
             return state

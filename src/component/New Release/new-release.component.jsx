@@ -12,13 +12,13 @@ const NewRelease = ({releases,title,addPlaylist})=>{
             <h2>{title}</h2>
             <div className="section">
             {releases && (
-                releases.map(release => <Card key={release.id} image={release.album.cover_medium} title={release.title}/>)
+                releases.map((release,index) => <Card key={release.id} image={release.album.cover_medium} title={release.title} index={index}/>)
             )}
             </div>
         </div>
      )
  }
 const mapDispatchToProps = dispatch=>({
-    addPlaylist: playlists=> dispatch(addPlaylist(playlists))
+    addPlaylist: playlists=> dispatch(addPlaylist(playlists)),
 })
 export default connect(null, mapDispatchToProps)(NewRelease)
