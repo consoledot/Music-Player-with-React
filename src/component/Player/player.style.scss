@@ -49,5 +49,8 @@
     }
     .fa{
         cursor: pointer;
+        &:active{
+            color: #6c63ff;
+        }
     }
 }

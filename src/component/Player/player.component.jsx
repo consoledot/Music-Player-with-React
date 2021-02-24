@@ -1,10 +1,10 @@
 import './player.style.scss'
 import {connect} from 'react-redux'
 import {useRef} from 'react'
-import {setStatus} from '../../redux/action'
+import {setStatus, updateIndex} from '../../redux/action'
 
 
-const Player = ({playlist,index, status, setStatus})=>{
+const Player = ({playlist,index, status, setStatus, updateIndex})=>{
 
 const player = useRef()
 function playSong(){
@@ -12,9 +12,12 @@ function playSong(){
     setStatus(!status)
 }
 function nextSong(){
-    player.current.play()
+  updateIndex(index+1)
+  setStatus(false)
 }
 function prevSong(){
+    updateIndex(index-1)
+    setStatus(false)
 }
 
 return(
@@ -47,6 +50,7 @@ const mapStateToProps = state=>({
     status: state.status
 })
 const mapDispatchToProps = dispatch=>({
-    setStatus: status => dispatch(setStatus(status))
+    setStatus: status => dispatch(setStatus(status)),
+    updateIndex: index => dispatch(updateIndex(index))
 })
 export default connect(mapStateToProps,mapDispatchToProps)(Player)

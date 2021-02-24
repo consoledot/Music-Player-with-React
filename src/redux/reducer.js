@@ -16,6 +16,11 @@ const reducer = (state= INITIAL_STATE, action)=>{
                 ...state,
                 index: action.payload
            }
+        case "UPDATE_INDEX":
+            return{
+                ...state,
+                index: action.payload
+            }
         case "SET_STATUS":
             return{
                 ...state,

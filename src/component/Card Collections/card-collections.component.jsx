@@ -10,7 +10,7 @@ const CardCollection =()=>{
     const [playlist, Setplaylist] = useState('')
     const [latest, Setlatest] = useState("")
 
-   const corsUrl ='https://cors-anywhere.herokuapp.com/'
+   const corsUrl ='https://cors.bridged.cc/'
    async function getDatas(){
        try{
            const responses = await Promise.all([
@@ -19,7 +19,7 @@ const CardCollection =()=>{
            ])
            const data = responses.map(response => response.data)
            Setplaylist(data[0])
-           Setlatest(data[1])
+           Setlatest(data[1]) 
            console.log(playlist)
            console.log(latest)
        }catch(err){
