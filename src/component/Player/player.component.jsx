@@ -4,7 +4,7 @@ import {useRef} from 'react'
 import {setStatus, updateIndex} from '../../redux/action'
 
 
-const Player = ({playlist,index, status, setStatus, updateIndex})=>{
+const Player = ({playlist,index, status, setStatus, updateIndex,albumArt})=>{
 
 const player = useRef()
 function playSong(){
@@ -25,7 +25,7 @@ function prevSong(){
 return(
     <div className="player-panel">
         <div className="image">
-       {playlist && <img src={playlist[index].album ? playlist[index].album.cover_medium : playlist[index].cover_medium } alt="music"/>}
+       {playlist && <img src={playlist[index].album ? playlist[index].album.cover_medium : albumArt} alt="music"/>}
         </div>
         {playlist &&<div className="title">{playlist[index].title}</div>}
         <div className="controls">
@@ -49,7 +49,8 @@ return(
 const mapStateToProps = state=>({
     playlist: state.newRelease,
     index: state.index,
-    status: state.status
+    status: state.status,
+    albumArt: state.albumArt
 })
 const mapDispatchToProps = dispatch=>({
     setStatus: status => dispatch(setStatus(status)),

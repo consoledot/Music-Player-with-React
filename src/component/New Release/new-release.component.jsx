@@ -2,11 +2,12 @@ import '../Card Collections/card-collections.style.scss'
 import {useEffect} from 'react'
 import Card  from '../Card/card.component'
 import {connect} from 'react-redux'
-import {addPlaylist} from '../../redux/action'
+import {addPlaylist, updateIndex} from '../../redux/action'
 
 
-const NewRelease = ({releases,title,addPlaylist})=>{
+const NewRelease = ({releases,title,addPlaylist,updateIndex})=>{
     addPlaylist(releases)
+    updateIndex(0)
     return(
         <div className="card-section">
             <h2>{title}</h2>
@@ -20,5 +21,6 @@ const NewRelease = ({releases,title,addPlaylist})=>{
  }
 const mapDispatchToProps = dispatch=>({
     addPlaylist: playlists=> dispatch(addPlaylist(playlists)),
+    updateIndex: index=> dispatch(updateIndex(index))
 })
 export default connect(null, mapDispatchToProps)(NewRelease)

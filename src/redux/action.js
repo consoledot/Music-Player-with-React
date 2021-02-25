@@ -15,3 +15,8 @@ export const setStatus = status=>({
     type:"SET_STATUS",
     payload:status
 })
+
+export const setAlbumArt =image =>({
+    type:"SET_ALBUM_ART",
+    payload: image
+})

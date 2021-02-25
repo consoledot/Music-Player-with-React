@@ -1,7 +1,8 @@
 const INITIAL_STATE = {
     newRelease: null,
     index: 0,
-    status: false
+    status: false,
+    albumArt:""
 }
 
 const reducer = (state= INITIAL_STATE, action)=>{
@@ -25,6 +26,11 @@ const reducer = (state= INITIAL_STATE, action)=>{
             return{
                 ...state,
                 status: action.payload
+            }
+        case "SET_ALBUM_ART":
+            return{
+                ...state,
+                albumArt: action.payload
             }
         default:
             return state
