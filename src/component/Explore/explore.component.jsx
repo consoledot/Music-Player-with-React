@@ -6,6 +6,7 @@ import {connect} from 'react-redux'
 import {addPlaylist, updateIndex} from '../../redux/action'
 const Explore = ({match,addPlaylist, isPlaylist, updateIndex})=>{
     const [playlist, setPlaylist] = useState('')
+    console.log(isPlaylist)
     updateIndex(0)
     function  getData() {
         const corsUrl ='https://cors.bridged.cc/'
@@ -37,4 +38,7 @@ const mapDispatchToProps = dispatch=>({
     updateIndex: index => dispatch(updateIndex(index))
    
 })
-export default connect(null, mapDispatchToProps)(Explore)
+const mapStateToProps = state=>({
+    isPlaylist: state.isPlaylist
+})
+export default connect(mapStateToProps, mapDispatchToProps)(Explore)

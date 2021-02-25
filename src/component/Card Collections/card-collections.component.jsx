@@ -34,7 +34,7 @@ const CardCollection =()=>{
     return(
         <div className="card-collection">
             {latest && <NewRelease releases={latest.tracks.data} title="New Releases"/>}
-             {latest && <Playlists playlists={latest.playlists.data} title="Featured Playlist"/>}
+             {latest && <Playlists playlists={latest.playlists.data} title="Featured Playlist" isPlaylist/>}
            {latest && <CardSection albums={latest.albums.data} title="Browse"/>}
         </div>
     )

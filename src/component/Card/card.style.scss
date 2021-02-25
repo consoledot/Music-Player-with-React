@@ -1,5 +1,7 @@
 .music-card{
     height: 150px;
+    width: 150px;
+   
     cursor: pointer;
     .image-card{
         height: 100%;
@@ -12,5 +14,6 @@
     .text{
         text-align: center;
         padding: 1rem 0;
+        overflow: hidden;
     }
 }
