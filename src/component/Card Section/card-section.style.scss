@@ -33,5 +33,12 @@
 @media screen and (max-width:450px){
     .card-section{
         padding:0.5rem;
+        height: 15rem;
+        h2{
+            font-size: medium;
+            &::after{
+                width: 30%;
+            }
+        }
     }
 }

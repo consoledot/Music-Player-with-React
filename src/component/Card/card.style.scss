@@ -1,7 +1,6 @@
 .music-card{
     height: 150px;
     width: 150px;
-   
     cursor: pointer;
     .image-card{
         height: 100%;
@@ -15,5 +14,11 @@
         text-align: center;
         padding: 1rem 0;
         overflow: hidden;
+    }
+}
+@media screen and (max-width:450px){
+    .music-card{
+        width: 110px;
+        height: 110px;
     }
 }

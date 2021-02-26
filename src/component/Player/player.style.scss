@@ -45,7 +45,7 @@
         }
     }
     .options, .controls{
-        display: 70;
+        display: flex;
     }
     .fa{
         cursor: pointer;
@@ -53,4 +53,30 @@
             color: #6c63ff;
         }
     }
+}
+@media screen and (max-width:450px){
+    .player-panel{
+        height: 50px;
+        .image{
+            height: 100%;
+        }
+        .title{
+            display: none;
+        }
+        .bar{
+            width: 50%;
+        }
+        .controls{
+            .fa{
+                transform: scale(0.9);
+            }
+            .fa-play-circle,.fa-pause-circle{
+                transform: scale(1);
+            }
+        }
+        .options{
+            display: none;
+        }
+    }
+    
 }
