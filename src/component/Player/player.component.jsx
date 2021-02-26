@@ -16,18 +16,18 @@ function playSong(){
     status ?  playerRef.current.pause() : playerRef.current.play()
     setStatus(!status)
 }
-function nextSong(){
+async function nextSong(){
     let newIndex = index + 1
-   newIndex >= playlist.length ? updateIndex(0) : updateIndex(newIndex)
+   newIndex >= playlist.length ? await updateIndex(0) : await updateIndex(newIndex)
    if(status){
        playerRef.current.play()
    }else{
     setStatus(false)
    }
 }
-function prevSong(){
+async function prevSong(){
     let newIndex = index - 1
-    newIndex < 0 ? updateIndex(playlist.length -1) : updateIndex(newIndex)
+    newIndex < 0 ? await updateIndex(playlist.length -1) :await updateIndex(newIndex)
     if(status){
         player.current.play()
     }else{
