@@ -6,8 +6,6 @@ import {connect} from 'react-redux'
 import {addPlaylist, updateIndex} from '../../redux/action'
 const Explore = ({match,addPlaylist, isPlaylist, updateIndex})=>{
     const [playlist, setPlaylist] = useState('')
-    console.log(isPlaylist)
-    updateIndex(0)
     function  getData() {
         const corsUrl ='https://cors.bridged.cc/'
         axios.get(corsUrl+`https://api.deezer.com/${isPlaylist ?'playlist':'album'}/${match.params.id}`)
@@ -18,6 +16,7 @@ const Explore = ({match,addPlaylist, isPlaylist, updateIndex})=>{
             })
     }
     useEffect(()=>{
+        updateIndex(0)
         getData()
         
     },[])

@@ -1,6 +1,6 @@
 import './player.style.scss'
 import {connect} from 'react-redux'
-import {useRef} from 'react'
+import {useRef, } from 'react'
 import {setStatus, updateIndex} from '../../redux/action'
 
 

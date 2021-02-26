@@ -3,18 +3,31 @@ import {connect} from 'react-redux'
 import {withRouter} from 'react-router-dom'
 import {setIndex,setStatus,setAlbumArt, setIsPlaylist} from '../../redux/action'
 
-const Card = ({image,title, index,id, setIndex,setStatus, match, history,setAlbumArt, isPlaylist,setIsPlaylist})=>{
-    setAlbumArt(image)
+const Card = ({image,title, index,id, setIndex,setStatus, match, history,setAlbumArt, isPlaylist,setIsPlaylist, album, click})=>{
     function changeTrack() {
         setIndex(index)
         setStatus(false)
     }
+    
     function explorePage(){
-        isPlaylist ? setIsPlaylist(true):setIsPlaylist(false)
+        if(isPlaylist){
+            setIsPlaylist(true)
+        }else{
+            setIsPlaylist(false)
+        }
+        if(album){
+            setAlbumArt(image)
+        }
         history.push(`${match.url}${id}`)
     }
     return(
-    <div className="music-card" onClick={()=> !isNaN(index) ? changeTrack():explorePage()}>
+    <div className="music-card" onClick={()=> {
+        if(!isNaN(index)){
+            changeTrack()
+        }else{
+            explorePage()
+        }
+    }}>
         <div className="image-card">
              {image && <img src={`${image}`} alt="music"/>}
         </div>

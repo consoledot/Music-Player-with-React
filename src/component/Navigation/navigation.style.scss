@@ -24,9 +24,14 @@
            display: flex;
            height: 100%;
            align-items: center;
-           width: 100%;
+        //    width: 100%;
            padding:1rem;
            cursor: pointer;
+           a{
+               text-decoration: none;
+               color: white;
+               width: 100%;
+           }
            &:hover{
                background-color: #c8c5f7;
            }
