@@ -4,32 +4,29 @@ import Playlists from '../Playlist/playlist.component'
 import NewRelease from '../New Release/new-release.component'
 import {useEffect, useState} from 'react'
 import axios from 'axios'
+import {setLatest} from '../../redux/action'
+import {connect} from 'react-redux'
 
 
-const CardCollection =()=>{
-    const [playlist, Setplaylist] = useState('')
-    const [latest, Setlatest] = useState("")
+const CardCollection =({latestSongs})=>{
+    const [latest, setLatest] = useState(latestSongs)
+    
 
    const corsUrl ='https://cors.bridged.cc/'
    async function getDatas(){
        try{
-           const responses = await Promise.all([
-               axios.get(corsUrl+ "https://api.deezer.com/playlist/908622995"),
-               axios.get(corsUrl+"https://api.deezer.com/chart/0")
-           ])
-           const data = responses.map(response => response.data)
-           Setplaylist(data[0])
-           Setlatest(data[1]) 
-           console.log(playlist)
-           console.log(latest)
+           const response = await  axios.get(corsUrl+"https://api.deezer.com/chart/0")
+            setLatest(response.data)
+          
        }catch(err){
            console.log(err)
        }
     }
-    // console.log(playlist)
-    // console.log(latest.tracks.data)
     useEffect(()=>{
-        getDatas()
+        if(!latest){
+            getDatas()
+            setLatest(latestSongs)
+        }
     },[])
     return(
         <div className="card-collection">
@@ -39,4 +36,10 @@ const CardCollection =()=>{
         </div>
     )
 }
-export default CardCollection
+const mapStateToProps = state=>({
+    latestSongs:state.latest
+})
+const mapDispatchToProps = dispatch=>({
+    setLatest: latest=> dispatch(setLatest(latest))
+})
+export default connect(mapStateToProps, mapDispatchToProps)(CardCollection)

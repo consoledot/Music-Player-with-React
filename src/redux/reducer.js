@@ -1,4 +1,5 @@
 const INITIAL_STATE = {
+    latest:null,
     newRelease: null,
     index: 0,
     status: false,
@@ -8,6 +9,11 @@ const INITIAL_STATE = {
 
 const reducer = (state= INITIAL_STATE, action)=>{
     switch(action.type){
+        case "SET_LATEST":
+            return{
+                ...state,
+                latest:action.payload
+            }
         case "ADD_PLAYLIST":
             return{
                 ...state,

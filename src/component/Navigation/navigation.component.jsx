@@ -10,11 +10,11 @@ const Navigation = ()=>(
        </div>
        <nav>
            <ul>
-               <li><Link to="/"><i className="fa fa-headphones" aria-hidden="true"></i>  Discover</Link></li>
-               <li><Link to="/search"><i className="fa fa-search" aria-hidden="true"></i>  Search</Link></li>
-               <li><Link><i className="fa fa-heart" aria-hidden="true"></i>  Favourite</Link></li>
-               <li> <Link><i className="fa fa-play-circle" aria-hidden="true"></i>  PlayList</Link></li>
-               <li><Link><i className="fa fa-align-left" aria-hidden="true"></i>  Charts</Link></li>
+               <li><Link to="/"><i className="fa fa-headphones" aria-hidden="true"></i>  <span>Discover</span></Link></li>
+               <li><Link to="/search"><i className="fa fa-search" aria-hidden="true"></i>  <span>Search</span></Link></li>
+               <li><Link><i className="fa fa-heart" aria-hidden="true"></i>  <span>Favourite</span></Link></li>
+               <li> <Link><i className="fa fa-play-circle" aria-hidden="true"></i> <span> PlayList</span></Link></li>
+               <li><Link><i className="fa fa-align-left" aria-hidden="true"></i> <span> Charts</span></Link></li>
            </ul>
        </nav>
     </div>

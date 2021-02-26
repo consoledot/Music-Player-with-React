@@ -6,7 +6,7 @@ import {addPlaylist, updateIndex} from '../../redux/action'
 
 
 const NewRelease = ({releases,title,addPlaylist,updateIndex})=>{
-    addPlaylist(releases)
+    if(!releases) addPlaylist(releases)
     updateIndex(0)
     return(
         <div className="card-section">

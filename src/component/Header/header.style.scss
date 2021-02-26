@@ -26,3 +26,11 @@
         padding-right: 7vw;
     }
 }
+@media screen and (max-width:450px){
+    .header-image{
+        display: none;
+    }
+    .header-text{
+        transform: scale(0.9);
+    }
+}

@@ -24,3 +24,7 @@ export const setIsPlaylist = status=>({
     type: "IS_PLAYLIST",
     payload:status
 })
+export const setLatest = data=>({
+    type:"SET_LATEST",
+    payload:data
+})
