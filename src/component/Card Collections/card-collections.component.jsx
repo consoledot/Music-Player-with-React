@@ -2,7 +2,7 @@ import './card-collections.style.scss'
 import CardSection from '../Card Section/card-section.component'
 import Playlists from '../Playlist/playlist.component'
 import NewRelease from '../New Release/new-release.component'
-import {useEffect, useState} from 'react'
+import {useEffect} from 'react'
 import axios from 'axios'
 import {setLatest,addPlaylist} from '../../redux/action'
 import {connect} from 'react-redux'
@@ -19,10 +19,6 @@ const CardCollection =({latest, setLatestSongs,addPlaylist})=>{
            console.log(err)
        }
     }
-    // async function start(){
-    //     await 
-        
-    // }
     useEffect(()=>{
         getDatas()
     },[])

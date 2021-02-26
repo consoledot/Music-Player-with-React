@@ -28,3 +28,13 @@ export const setLatest = data=>({
     type:"SET_LATEST",
     payload:data
 })
+
+export const setPlaying = status=>({
+    type:"SET_PLAYING",
+    payload:status
+})
+
+export const setPlayer = player=>({
+    type:"SET_PLAYER",
+    payload:player
+})

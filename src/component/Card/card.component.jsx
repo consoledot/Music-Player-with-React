@@ -2,11 +2,17 @@ import './card.style.scss'
 import {connect} from 'react-redux'
 import {withRouter} from 'react-router-dom'
 import {setIndex,setStatus,setAlbumArt, setIsPlaylist} from '../../redux/action'
+import {playerRef} from '../Player/player.component'
 
-const Card = ({image,title, index,id, setIndex,setStatus, match, history,setAlbumArt, isPlaylist,setIsPlaylist, album, click})=>{
-    function changeTrack() {
-        setIndex(index)
-        setStatus(false)
+const Card = ({image,title, index,id, setIndex,setStatus, match, history,setAlbumArt, isPlaylist,setIsPlaylist, album, player, status})=>{
+   async function changeTrack() {
+        await setIndex(index)
+        if(!status){
+            setStatus(true)
+         } 
+          playerRef.current.play()
+        //  await player.current.play()
+       // console.log(player.current)
     }
     
     function explorePage(){
@@ -43,5 +49,9 @@ const Card = ({image,title, index,id, setIndex,setStatus, match, history,setAlbu
         setAlbumArt: image => dispatch(setAlbumArt(image)),
         setIsPlaylist: status => dispatch(setIsPlaylist(status))
     })
-
-export default withRouter(connect(null,mapDispatchToProps)(Card))
+    
+const mapStateToProps = state=>({
+    player:state.player,
+    status:state.status
+})
+export default withRouter(connect(mapStateToProps,mapDispatchToProps)(Card))

@@ -4,7 +4,9 @@ const INITIAL_STATE = {
     index: 0,
     status: false,
     albumArt:"",
-    isPlaylist:false
+    isPlaylist:false,
+    isPlaying:false,
+    player:null
 }
 
 const reducer = (state= INITIAL_STATE, action)=>{
@@ -43,6 +45,16 @@ const reducer = (state= INITIAL_STATE, action)=>{
             return{
                 ...state,
                 isPlaylist: action.payload
+            }
+        case "SET_PLAYING":
+            return{
+                ...state,
+                isPlaying:action.payload
+            }
+        case "SET_PLAYER":
+            return{
+                ...state,
+                player:action.payload
             }
         default:
             return state

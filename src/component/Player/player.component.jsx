@@ -1,25 +1,38 @@
 import './player.style.scss'
 import {connect} from 'react-redux'
-import {useRef, } from 'react'
-import {setStatus, updateIndex} from '../../redux/action'
+import {useRef,useEffect } from 'react'
+import {setStatus, updateIndex,setPlayer} from '../../redux/action'
 
+export let playerRef
+const Player = ({playlist,index, status, setStatus, updateIndex,albumArt, player,setPlayer})=>{
 
-const Player = ({playlist,index, status, setStatus, updateIndex,albumArt})=>{
+playerRef = useRef()
+useEffect(()=>{
+    setPlayer(playerRef)
+},[])
 
-const player = useRef()
+console.log(player)
 function playSong(){
-    status ?  player.current.pause() : player.current.play()
+    status ?  playerRef.current.pause() : playerRef.current.play()
     setStatus(!status)
 }
 function nextSong(){
     let newIndex = index + 1
    newIndex >= playlist.length ? updateIndex(0) : updateIndex(newIndex)
-   setStatus(false)
+   if(status){
+       playerRef.current.play()
+   }else{
+    setStatus(false)
+   }
 }
 function prevSong(){
     let newIndex = index - 1
     newIndex < 0 ? updateIndex(playlist.length -1) : updateIndex(newIndex)
-    setStatus(false)
+    if(status){
+        player.current.play()
+    }else{
+     setStatus(false)
+    }
 }
 
 return(
@@ -42,7 +55,7 @@ return(
             <i className="fa fa-retweet" aria-hidden="true"></i>
             <i className="fa fa-volume-up" aria-hidden="true"></i>
         </div>
-        {playlist && <audio ref ={player}src={`${playlist[index].preview}`}/>}
+        {playlist && <audio ref ={playerRef}src={`${playlist[index].preview}`}/>}
     </div>
 )
 }
@@ -50,10 +63,12 @@ const mapStateToProps = state=>({
     playlist: state.newRelease,
     index: state.index,
     status: state.status,
-    albumArt: state.albumArt
+    albumArt: state.albumArt,
+    player:state.player
 })
 const mapDispatchToProps = dispatch=>({
     setStatus: status => dispatch(setStatus(status)),
-    updateIndex: index => dispatch(updateIndex(index))
+    updateIndex: index => dispatch(updateIndex(index)),
+    setPlayer:player =>dispatch(setPlayer(player))
 })
 export default connect(mapStateToProps,mapDispatchToProps)(Player)

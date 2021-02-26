@@ -1,5 +1,4 @@
 import '../Card Collections/card-collections.style.scss'
-import {useEffect} from 'react'
 import Card  from '../Card/card.component'
 import {connect} from 'react-redux'
 import {addPlaylist, updateIndex} from '../../redux/action'
