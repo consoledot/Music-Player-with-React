@@ -8,10 +8,7 @@ import {setLatest,addPlaylist} from '../../redux/action'
 import {connect} from 'react-redux'
 
 
-const CardCollection =({latestSongs, setLatestSongs,addPlaylist})=>{
-    const [latest, setLatest] = useState("")
-    
-
+const CardCollection =({latest, setLatestSongs,addPlaylist})=>{
    const corsUrl ='https://cors.bridged.cc/'
    async function getDatas(){
        try{
@@ -22,13 +19,12 @@ const CardCollection =({latestSongs, setLatestSongs,addPlaylist})=>{
            console.log(err)
        }
     }
-    async function start(){
-        await getDatas()
-        await setLatest(latestSongs)
+    // async function start(){
+    //     await 
         
-    }
+    // }
     useEffect(()=>{
-           start()
+        getDatas()
     },[])
     return(
         <div className="card-collection">
@@ -39,7 +35,7 @@ const CardCollection =({latestSongs, setLatestSongs,addPlaylist})=>{
     )
 }
 const mapStateToProps = state=>({
-    latestSongs:state.latest
+    latest:state.latest
 })
 const mapDispatchToProps = dispatch=>({
     setLatestSongs: latest=> dispatch(setLatest(latest)),

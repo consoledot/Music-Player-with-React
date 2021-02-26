@@ -9,7 +9,7 @@
         height: 100%;
         width: 100%;
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
         grid-gap: 10px;
         justify-items: center;
         &>*{
@@ -20,5 +20,10 @@
 @media screen and (max-width:450px){
     h1{
         font-size: medium;
+    }
+    .explore{
+        .section{
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+        }
     }
 }
