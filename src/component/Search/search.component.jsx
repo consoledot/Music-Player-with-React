@@ -11,15 +11,15 @@ const Search = ({addPlaylist})=>{
     const corsUrl = "https://cors.bridged.cc/"
     const Text = <p className="display-text"> Search field is empty</p>
     const loading =<Loading/>
-    const loaded = <p>Loaded</p>
     const [text,setText] = useState("")
     const [data, setData] = useState("")
     const [display, setDisplay] = useState(Text)
     useEffect(()=>{
         input.current.focus()
-    })
+    },[input])
     function Search(e){
         e.preventDefault()
+        input.current.blur()
        getData()
         clearText()
     }
