@@ -1,0 +1,42 @@
+.search-section{
+    height: 70vh;
+    overflow-y: scroll;
+    padding: 1rem;
+    form{
+        margin-top: 1rem;
+        width: 100%;
+        text-align: center;
+        input[type='text']{
+            border: none;
+            border: 1.5px solid #6c63ff;
+            padding: 1rem 1.5rem;
+            border-radius: 5px;
+            color:#6c63ff
+        }
+    }
+    .display-text{
+        text-align: center;
+        color: #6c63ff;
+        margin-top: 10%;
+        font-size: x-large;
+    }
+    .section{
+        height: 100%;
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        grid-gap: 10px;
+        justify-items: center;
+        &>*{
+            margin: 1rem 0;
+        }
+    }
+}
+@media screen and (max-width:450px){
+  
+    .search-section{
+        .section{
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+        }
+    }
+}
