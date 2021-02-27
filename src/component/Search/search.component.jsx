@@ -20,6 +20,7 @@ const Search = ({addPlaylist})=>{
     function Search(e){
         e.preventDefault()
         input.current.blur()
+        setData("")
        getData()
         clearText()
     }
