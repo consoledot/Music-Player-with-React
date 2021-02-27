@@ -11,8 +11,6 @@ const Card = ({image,title, index,id, setIndex,setStatus, match, history,setAlbu
             setStatus(true)
          } 
           playerRef.current.play()
-        //  await player.current.play()
-       // console.log(player.current)
     }
     
     function explorePage(){

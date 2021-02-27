@@ -1,0 +1,17 @@
+.spinner {
+    pointer-events: none;
+    width: 8rem;
+    height: 8rem;
+    border: 0.4em solid transparent;
+    border-color: #eee;
+    border-top-color: #6c63ff;
+    border-radius: 50%;
+    animation: loadingspin 1s linear infinite;
+    margin: 20% auto;
+  }
+  
+  @keyframes loadingspin {
+    100% {
+      transform: rotate(360deg);
+    }
+  }

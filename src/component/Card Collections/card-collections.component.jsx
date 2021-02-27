@@ -2,6 +2,7 @@ import './card-collections.style.scss'
 import CardSection from '../Card Section/card-section.component'
 import Playlists from '../Playlist/playlist.component'
 import NewRelease from '../New Release/new-release.component'
+import Loading from '../Loading/loading.component'
 import {useEffect} from 'react'
 import axios from 'axios'
 import {setLatest,addPlaylist} from '../../redux/action'
@@ -24,9 +25,13 @@ const CardCollection =({latest, setLatestSongs,addPlaylist})=>{
     },[])
     return(
         <div className="card-collection">
-            {latest && <NewRelease releases={latest.tracks.data} title="New Releases"/>}
-             {latest && <Playlists playlists={latest.playlists.data} title="Featured Playlist" isPlaylist/>}
-           {latest && <CardSection albums={latest.albums.data} title="Browse"/>}
+            {!latest ? <Loading/> :(
+                <>
+                 <NewRelease releases={latest.tracks.data} title="New Releases"/>
+                  <Playlists playlists={latest.playlists.data} title="Featured Playlist" isPlaylist/>
+                  <CardSection albums={latest.albums.data} title="Browse"/>
+                </>
+            )}
         </div>
     )
 }
