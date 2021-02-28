@@ -1,5 +1,5 @@
 import './card-collections.style.scss'
-import CardSection from '../Card Section/card-section.component'
+import Browse from '../Browse/browse.component'
 import Playlists from '../Playlist/playlist.component'
 import NewRelease from '../New Release/new-release.component'
 import Loading from '../Loading/loading.component'
@@ -29,7 +29,7 @@ const CardCollection =({latest, setLatestSongs,addPlaylist})=>{
                 <>
                  <NewRelease releases={latest.tracks.data} title="New Releases"/>
                   <Playlists playlists={latest.playlists.data} title="Featured Playlist" isPlaylist/>
-                  <CardSection albums={latest.albums.data} title="Browse"/>
+                  <Browse albums={latest.albums.data} title="Browse"/>
                 </>
             )}
         </div>

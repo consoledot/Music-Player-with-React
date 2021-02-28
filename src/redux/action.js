@@ -33,8 +33,7 @@ export const setPlaying = status=>({
     type:"SET_PLAYING",
     payload:status
 })
-
-export const setPlayer = player=>({
-    type:"SET_PLAYER",
-    payload:player
+export const addFavorites= favorite=>({
+    type: "ADD_FAVORITE",
+    payload:favorite
 })

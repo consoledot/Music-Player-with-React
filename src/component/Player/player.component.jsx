@@ -1,17 +1,13 @@
 import './player.style.scss'
 import {connect} from 'react-redux'
-import {useRef,useEffect } from 'react'
-import {setStatus, updateIndex,setPlayer} from '../../redux/action'
+import {useRef} from 'react'
+import {setStatus, updateIndex,addFavorites} from '../../redux/action'
 
 export let playerRef
-const Player = ({playlist,index, status, setStatus, updateIndex,albumArt, player,setPlayer})=>{
+const Player = ({playlist,index, status, setStatus, updateIndex,albumArt,addFavorites})=>{
 
 playerRef = useRef()
-useEffect(()=>{
-    setPlayer(playerRef)
-},[])
 
-console.log(player)
 function playSong(){
     status ?  playerRef.current.pause() : playerRef.current.play()
     setStatus(!status)
@@ -29,10 +25,13 @@ async function prevSong(){
     let newIndex = index - 1
     newIndex < 0 ? await updateIndex(playlist.length -1) :await updateIndex(newIndex)
     if(status){
-        player.current.play()
+        playerRef.current.play()
     }else{
      setStatus(false)
     }
+}
+function favorites(){
+    addFavorites(playlist[index])
 }
 
 return(
@@ -50,7 +49,7 @@ return(
             <div className="progress"></div>
         </div>
         <div className="options">
-            <i className="fa fa-heart" aria-hidden="true"></i>
+            <i className="fa fa-heart" aria-hidden="true" onClick={favorites}></i>
             <i className="fa fa-random" aria-hidden="true"></i>
             <i className="fa fa-retweet" aria-hidden="true"></i>
             <i className="fa fa-volume-up" aria-hidden="true"></i>
@@ -64,11 +63,10 @@ const mapStateToProps = state=>({
     index: state.index,
     status: state.status,
     albumArt: state.albumArt,
-    player:state.player
 })
 const mapDispatchToProps = dispatch=>({
     setStatus: status => dispatch(setStatus(status)),
     updateIndex: index => dispatch(updateIndex(index)),
-    setPlayer:player =>dispatch(setPlayer(player))
+    addFavorites: favorite => dispatch(addFavorites(favorite))
 })
 export default connect(mapStateToProps,mapDispatchToProps)(Player)

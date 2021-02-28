@@ -1,9 +1,9 @@
-import './card-section.style.scss'
+import './browse.style.scss'
 import Card  from '../Card/card.component'
 import {connect} from 'react-redux'
-import {setAlbumArt} from '../../redux/action'
 
-const CardSection= ({albums,title, setAlbumArt})=>{
+
+const Browse= ({albums,title})=>{
     
     return(
     <div className="card-section">
@@ -15,9 +15,6 @@ const CardSection= ({albums,title, setAlbumArt})=>{
         </div>
     </div>
 )
-    }
-const mapDispatchToProps = dispatch=>({
-    setAlbumArt: image => dispatch(setAlbumArt(image))
-})
+}
 
-export default connect(null, mapDispatchToProps)(CardSection)
+export default Browse

@@ -4,7 +4,7 @@ import {withRouter} from 'react-router-dom'
 import {setIndex,setStatus,setAlbumArt, setIsPlaylist} from '../../redux/action'
 import {playerRef} from '../Player/player.component'
 
-const Card = ({image,title, index,id, setIndex,setStatus, match, history,setAlbumArt, isPlaylist,setIsPlaylist, album, player, status})=>{
+const Card = ({image,title, index,id, setIndex,setStatus, match, history,setAlbumArt, isPlaylist,setIsPlaylist, album,status})=>{
    async function changeTrack() {
         await setIndex(index)
         if(!status){
@@ -49,7 +49,6 @@ const Card = ({image,title, index,id, setIndex,setStatus, match, history,setAlbu
     })
     
 const mapStateToProps = state=>({
-    player:state.player,
     status:state.status
 })
 export default withRouter(connect(mapStateToProps,mapDispatchToProps)(Card))

@@ -6,7 +6,7 @@ const INITIAL_STATE = {
     albumArt:"",
     isPlaylist:false,
     isPlaying:false,
-    player:null
+    favorites:[]
 }
 
 const reducer = (state= INITIAL_STATE, action)=>{
@@ -51,10 +51,10 @@ const reducer = (state= INITIAL_STATE, action)=>{
                 ...state,
                 isPlaying:action.payload
             }
-        case "SET_PLAYER":
+        case "ADD_FAVORITE":
             return{
                 ...state,
-                player:action.payload
+                favorites: [...state.favorites, action.payload]
             }
         default:
             return state
