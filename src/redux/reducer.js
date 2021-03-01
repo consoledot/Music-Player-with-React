@@ -1,3 +1,5 @@
+import {addOrRemoveFavorite} from './utils'
+
 const INITIAL_STATE = {
     latest:null,
     newRelease: null,
@@ -54,7 +56,7 @@ const reducer = (state= INITIAL_STATE, action)=>{
         case "ADD_FAVORITE":
             return{
                 ...state,
-                favorites: [...state.favorites, action.payload]
+                favorites: addOrRemoveFavorite(state.favorites, action.payload)
             }
         default:
             return state

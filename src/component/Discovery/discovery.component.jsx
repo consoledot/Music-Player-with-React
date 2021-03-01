@@ -5,12 +5,14 @@ import CardCollection from '../Card Collections/card-collections.component'
 import Player from '../Player/player.component'
 import Explore from '../Explore/explore.component'
 import Search from '../Search/search.component'
+import Favorite from '../Favorites/favorites.component'
 const Discovery =()=>(
     <div className="discovery">
         <Header/>
             <Switch>
                 <Route exact path="/" component={CardCollection}/>
                 <Route  path="/search" component={Search}/>
+                <Route path="/favorites" component={Favorite}/>
                 <Route  path="/:id" component={Explore}/>
             </Switch>
        <Player/>

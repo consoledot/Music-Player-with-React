@@ -12,7 +12,7 @@ const Navigation = ()=>(
            <ul>
            <Link to="/"> <li><i className="fa fa-headphones" aria-hidden="true"></i>  <span>Discover</span></li></Link>
            <Link to="/search"><li><i className="fa fa-search" aria-hidden="true"></i>  <span>Search</span></li></Link>
-           <Link><li><i className="fa fa-heart" aria-hidden="true"></i>  <span>Favourite</span></li></Link>
+           <Link to="/favorites"><li><i className="fa fa-heart" aria-hidden="true"></i>  <span>Favourite</span></li></Link>
            <Link><li> <i className="fa fa-play-circle" aria-hidden="true"></i> <span> PlayList</span></li></Link>
            <Link><li><i className="fa fa-align-left" aria-hidden="true"></i> <span> Charts</span></li></Link>
            </ul>

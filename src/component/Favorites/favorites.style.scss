@@ -1,0 +1,19 @@
+.favorite{
+    height: 70vh;
+    overflow-y: scroll;
+    padding: 1rem;
+    &::-webkit-scrollbar {
+        display: none;
+      }
+    .section{
+        height: 100%;
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 0.6fr));
+        grid-gap: 10px;
+        // justify-items: center;
+        &>*{
+            margin: 1rem 0;
+        }
+    }
+}
