@@ -1,5 +1,4 @@
 .header{
-    background-color: #ffb5a7;
     height: 20vh;
     overflow: hidden;
     display: flex;
@@ -34,6 +33,9 @@
         .header-text{
             transform: scale(1.3);
             padding-left: 10vw;
+           span{
+               cursor: pointer;
+           }
         }
     }
 

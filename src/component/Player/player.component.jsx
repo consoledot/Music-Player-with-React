@@ -4,7 +4,7 @@ import {useRef} from 'react'
 import {setStatus, updateIndex,addFavorites} from '../../redux/action'
 
 export let playerRef
-const Player = ({playlist,index, status, setStatus, updateIndex,albumArt,addFavorites})=>{
+const Player = ({playlist,index, status, setStatus, updateIndex,albumArt,addFavorites,mode})=>{
 
 playerRef = useRef()
 
@@ -35,7 +35,11 @@ function favorites(){
 }
 
 return(
-    <div className="player-panel">
+    <div className="player-panel"  style={{
+        backgroundColor:`${mode? 'white': '#202c37'}`,
+        color:`${!mode? 'white': '#202c37'}`,
+        borderTop:`1px solid ${mode?'whitesmoke':'#2b3945'}`
+    }}>
         <div className="image">
        {playlist && <img src={playlist[index].album ? playlist[index].album.cover_medium : albumArt} alt="music"/>}
         </div>
@@ -63,6 +67,7 @@ const mapStateToProps = state=>({
     index: state.index,
     status: state.status,
     albumArt: state.albumArt,
+    mode: state.mode
 })
 const mapDispatchToProps = dispatch=>({
     setStatus: status => dispatch(setStatus(status)),

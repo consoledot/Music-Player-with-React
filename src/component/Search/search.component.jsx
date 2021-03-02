@@ -6,7 +6,7 @@ import axios from 'axios'
 import {addPlaylist} from '../../redux/action'
 import {connect} from 'react-redux'
 
-const Search = ({addPlaylist})=>{
+const Search = ({addPlaylist,mode})=>{
     const input = useRef()
     const corsUrl = "https://cors.bridged.cc/"
     const Text = <p className="display-text"> Search field is empty</p>
@@ -40,7 +40,10 @@ const Search = ({addPlaylist})=>{
        setDisplay("")
     }
     return(
-        <div className="search-section">
+        <div className="search-section" style={{
+            backgroundColor:`${mode? 'white': '#202c37'}`,
+            color:`${!mode? 'white': '#202c37'}`
+        }}>
             <form onSubmit={Search}>
                 <input ref={input}type="text" placeholder="Enter your Search keyword" onChange={updateText}/>
             </form>
@@ -58,4 +61,7 @@ const Search = ({addPlaylist})=>{
 const mapDispatchToProps =  dispatch=>({
     addPlaylist: playlist=>(dispatch(addPlaylist(playlist)))
 })
-export default connect(null, mapDispatchToProps)(Search)
+const mapStateToProps = state=>({
+    mode:state.mode
+})
+export default connect(mapStateToProps, mapDispatchToProps)(Search)

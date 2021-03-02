@@ -8,7 +8,8 @@ const INITIAL_STATE = {
     albumArt:"",
     isPlaylist:false,
     isPlaying:false,
-    favorites:[]
+    favorites:[],
+    mode:true
 }
 
 const reducer = (state= INITIAL_STATE, action)=>{
@@ -57,6 +58,11 @@ const reducer = (state= INITIAL_STATE, action)=>{
             return{
                 ...state,
                 favorites: addOrRemoveFavorite(state.favorites, action.payload)
+            }
+        case "SET_MODE":
+            return{
+                ...state,
+                mode: action.payload
             }
         default:
             return state

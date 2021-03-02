@@ -37,3 +37,8 @@ export const addFavorites= favorite=>({
     type: "ADD_FAVORITE",
     payload:favorite
 })
+
+export const setMode = mode=>({
+    type:"SET_MODE",
+    payload:mode
+})

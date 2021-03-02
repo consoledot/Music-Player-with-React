@@ -5,7 +5,7 @@ import Loading from '../Loading/loading.component'
 import axios from 'axios'
 import {connect} from 'react-redux'
 import {addPlaylist, updateIndex} from '../../redux/action'
-const Explore = ({match,addPlaylist, isPlaylist, updateIndex})=>{
+const Explore = ({match,addPlaylist, isPlaylist, updateIndex,mode})=>{
     const [playlist, setPlaylist] = useState('')
     function  getData() {
         const corsUrl ='https://cors.bridged.cc/'
@@ -22,7 +22,10 @@ const Explore = ({match,addPlaylist, isPlaylist, updateIndex})=>{
         
     },[])
 return(
-    <div className="explore">
+    <div className="explore"  style={{
+        backgroundColor:`${mode? 'white': '#202c37'}`,
+        color:`${!mode? 'white': '#202c37'}`
+    }}>
         {
             !playlist ? <Loading/> :(
                 <>
@@ -45,6 +48,7 @@ const mapDispatchToProps = dispatch=>({
    
 })
 const mapStateToProps = state=>({
-    isPlaylist: state.isPlaylist
+    isPlaylist: state.isPlaylist,
+    mode:state.mode
 })
 export default connect(mapStateToProps, mapDispatchToProps)(Explore)

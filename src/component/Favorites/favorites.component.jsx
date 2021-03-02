@@ -4,12 +4,15 @@ import {connect} from 'react-redux'
 import Card from '../Card/card.component'
 import {addPlaylist} from '../../redux/action'
 
-const Favorites =({favorites})=>{
+const Favorites =({favorites,mode})=>{
     useEffect(()=>{
         addPlaylist(favorites)
     },[favorites])
     return(
-        <div className="favorite"> 
+        <div className="favorite" style={{
+            backgroundColor:`${mode? 'white': '#202c37'}`,
+            color:`${!mode? 'white': '#202c37'}`
+        }}> 
             <h1>Favorites</h1>
             <div className="section"> 
             {
@@ -25,7 +28,8 @@ const Favorites =({favorites})=>{
     )
     }
 const mapStateToProps = state=>({
-    favorites: state.favorites
+    favorites: state.favorites,
+    mode:state.mode
 })
 const mapDispatchToProps = dispatch=>({
     addPlaylist: playlist=>dispatch(addPlaylist(playlist))

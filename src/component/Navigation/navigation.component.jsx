@@ -1,9 +1,11 @@
 import './navigation.style.scss'
 import {ReactComponent as ProfilePic} from '../../assets/profile-pic.svg'
 import {Link} from 'react-router-dom'
-
-const Navigation = ()=>(
-    <div className="navigation">
+import {connect} from 'react-redux'
+const Navigation = ({mode})=>(
+    <div className="navigation" style={{
+        backgroundColor:`${mode? '#6c63ff':'#2b3945'}`
+    }}>
        <div className="user-image">
            <ProfilePic className="image"/>
            <p>Abimbola</p>
@@ -19,5 +21,8 @@ const Navigation = ()=>(
        </nav>
     </div>
 )
+const mapStateToProps=state=>({
+    mode: state.mode
+})
 
-export default Navigation
+export default connect(mapStateToProps)(Navigation)

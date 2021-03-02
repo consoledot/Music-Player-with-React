@@ -9,7 +9,7 @@ import {setLatest,addPlaylist} from '../../redux/action'
 import {connect} from 'react-redux'
 
 
-const CardCollection =({latest, setLatestSongs,addPlaylist})=>{
+const CardCollection =({latest, setLatestSongs,addPlaylist,mode})=>{
    const corsUrl ='https://cors.bridged.cc/'
    async function getDatas(){
        try{
@@ -24,7 +24,10 @@ const CardCollection =({latest, setLatestSongs,addPlaylist})=>{
         getDatas()
     },[])
     return(
-        <div className="card-collection">
+        <div className="card-collection" style={{
+            backgroundColor:`${mode? 'white': '#202c37'}`,
+            color:`${!mode? 'white': '#202c37'}`
+        }}>
             {!latest ? <Loading/> :(
                 <>
                  <NewRelease releases={latest.tracks.data} title="New Releases"/>
@@ -36,7 +39,8 @@ const CardCollection =({latest, setLatestSongs,addPlaylist})=>{
     )
 }
 const mapStateToProps = state=>({
-    latest:state.latest
+    latest:state.latest,
+    mode: state.mode
 })
 const mapDispatchToProps = dispatch=>({
     setLatestSongs: latest=> dispatch(setLatest(latest)),
