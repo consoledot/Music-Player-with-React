@@ -2,6 +2,9 @@
     height: 75vh;
     overflow-y: scroll;
     padding: 1rem;
+    &::-webkit-scrollbar {
+        display: none;
+      }
     form{
         margin-top: 1rem;
         width: 100%;
