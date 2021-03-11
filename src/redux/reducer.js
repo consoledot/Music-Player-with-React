@@ -6,7 +6,6 @@ const INITIAL_STATE = {
     index: 0,
     status: false,
     albumArt:"",
-    isPlaylist:false,
     isPlaying:false,
     favorites:[],
     mode:true
@@ -43,11 +42,6 @@ const reducer = (state= INITIAL_STATE, action)=>{
             return{
                 ...state,
                 albumArt: action.payload
-            }
-        case "IS_PLAYLIST":
-            return{
-                ...state,
-                isPlaylist: action.payload
             }
         case "SET_PLAYING":
             return{

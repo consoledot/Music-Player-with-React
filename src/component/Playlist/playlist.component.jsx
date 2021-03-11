@@ -7,7 +7,7 @@ const Playlists = ({playlists,title})=>{
         <h2>{title}</h2>
         <div className="section">
          {playlists && (
-             playlists.map((playlist) => <Card key={playlist.id} image={playlist.picture_medium} title={playlist.title} id={playlist.id} isPlaylist/>)
+             playlists.map((playlist) => <Card key={playlist.id} image={playlist.picture_medium} title={playlist.title} id={playlist.id} type={playlist.type}/>)
          )}
         </div>
     </div>

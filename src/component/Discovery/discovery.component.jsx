@@ -13,7 +13,7 @@ const Discovery =()=>(
                 <Route exact path="/" component={CardCollection}/>
                 <Route  path="/search" component={Search}/>
                 <Route path="/favorites" component={Favorite}/>
-                <Route  path="/:id" component={Explore}/>
+                <Route  path="/:type/:id" component={Explore}/>
             </Switch>
        <Player/>
     </div>

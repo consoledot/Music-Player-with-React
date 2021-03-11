@@ -20,10 +20,6 @@ export const setAlbumArt =image =>({
     type:"SET_ALBUM_ART",
     payload: image
 })
-export const setIsPlaylist = status=>({
-    type: "IS_PLAYLIST",
-    payload:status
-})
 export const setLatest = data=>({
     type:"SET_LATEST",
     payload:data

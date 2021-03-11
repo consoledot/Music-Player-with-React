@@ -1,10 +1,10 @@
 import './card.style.scss'
 import {connect} from 'react-redux'
 import {withRouter} from 'react-router-dom'
-import {setIndex,setStatus,setAlbumArt, setIsPlaylist} from '../../redux/action'
+import {setIndex,setStatus,setAlbumArt} from '../../redux/action'
 import {playerRef} from '../Player/player.component'
 
-const Card = ({image,title, index,id, setIndex,setStatus, match, history,setAlbumArt, isPlaylist,setIsPlaylist, album,status})=>{
+const Card = ({image,title, index,id, setIndex,setStatus, match, history,setAlbumArt,status, type})=>{
    async function changeTrack() {
         await setIndex(index)
         if(!status){
@@ -14,15 +14,10 @@ const Card = ({image,title, index,id, setIndex,setStatus, match, history,setAlbu
     }
     
     function explorePage(){
-        if(isPlaylist){
-            setIsPlaylist(true)
-        }else{
-            setIsPlaylist(false)
-        }
-        if(album){
+        if(type === 'album'){
             setAlbumArt(image)
         }
-        history.push(`${match.url}${id}`)
+        history.push(`${match.url}${type}/${id}`)
     }
     return(
     <div className="music-card" onClick={()=> {
@@ -45,7 +40,6 @@ const Card = ({image,title, index,id, setIndex,setStatus, match, history,setAlbu
         setIndex: index => dispatch(setIndex(index)),
         setStatus: status => dispatch(setStatus(status)),
         setAlbumArt: image => dispatch(setAlbumArt(image)),
-        setIsPlaylist: status => dispatch(setIsPlaylist(status))
     })
     
 const mapStateToProps = state=>({

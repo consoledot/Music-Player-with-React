@@ -31,7 +31,7 @@ const CardCollection =({latest, setLatestSongs,addPlaylist,mode})=>{
             {!latest ? <Loading/> :(
                 <>
                  <NewRelease releases={latest.tracks.data} title="New Releases"/>
-                  <Playlists playlists={latest.playlists.data} title="Featured Playlist" isPlaylist/>
+                  <Playlists playlists={latest.playlists.data} title="Featured Playlist"/>
                   <Browse albums={latest.albums.data} title="Browse"/>
                 </>
             )}

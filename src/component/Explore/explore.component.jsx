@@ -5,21 +5,21 @@ import Loading from '../Loading/loading.component'
 import axios from 'axios'
 import {connect} from 'react-redux'
 import {addPlaylist, updateIndex} from '../../redux/action'
-const Explore = ({match,addPlaylist, isPlaylist, updateIndex,mode})=>{
+const Explore = ({match,addPlaylist, updateIndex,mode})=>{
+    console.log(match.params.id)
     const [playlist, setPlaylist] = useState('')
     function  getData() {
+        const {type,id} = match.params
         const corsUrl ='https://cors.bridged.cc/'
-        axios.get(corsUrl+`https://api.deezer.com/${isPlaylist ?'playlist':'album'}/${match.params.id}`)
+        axios.get(corsUrl+`https://api.deezer.com/${type}/${id}}`)
             .then(data => {
-                console.log(data.data)
                 setPlaylist(data.data)
                 addPlaylist(data.data.tracks.data)
             })
     }
     useEffect(()=>{
         updateIndex(0)
-        getData()
-        
+        getData()        
     },[])
 return(
     <div className="explore"  style={{
@@ -48,7 +48,6 @@ const mapDispatchToProps = dispatch=>({
    
 })
 const mapStateToProps = state=>({
-    isPlaylist: state.isPlaylist,
     mode:state.mode
 })
 export default connect(mapStateToProps, mapDispatchToProps)(Explore)
